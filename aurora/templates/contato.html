@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aurora</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!--Icones Rounded (googlefonts)-->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+    <link rel="stylesheet" href="/static/css/contato.css" />
+
+    <!--Icones Outilined (googlefonts)-->
+    <!-- Ícones "Outlined" -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
+    <!--Icones derivados -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+      <!-- Sidebar Header -->
+      <header class="sidebar-header">
+        <a class="header-logo">
+          <img src="http://servicos.on.br/Logo.png" alt="Logo" />
+        </a>
+        <button class="toggler sidebar-toggler">
+          <span class="material-symbols-rounded"> chevron_left </span>
+        </button>
+        <button class="toggler menu-toggler">
+          <span class="material-symbols-rounded"> menu </span>
+        </button>
+      </header>
+
+      <!-- Sidebar Nav -->
+      <nav class="sidebar-nav">
+        <!--Primeira Metade(top)-->
+        <ul class="nav-list primary-nav">
+          <li class="nav-item">
+            <a href="index.html" class="nav-link">
+              <span class="material-symbols-rounded">chat</span>
+              <span class="nav-label">Chat</span>
+            </a>
+            <span class="nav-tooltip">Inicie uma conversa com a Aurora!</span>
+          </li>
+
+          <li class="nav-item">
+            <a href="sobre.html" class="nav-link">
+              <span class="material-symbols-rounded">info</span>
+              <span class="nav-label">Sobre</span>
+            </a>
+            <span class="nav-tooltip">Descubra tudo sobre a Aurora!</span>
+          </li>
+
+          <li class="nav-item">
+            <a href="contato.html" class="nav-link">
+              <span class="material-symbols-rounded">call</span>
+              <span class="nav-label">Contato</span>
+            </a>
+            <span class="nav-tooltip">Precisa de ajuda? Fale conosco!</span>
+          </li>
+
+          <li class="nav-item">
+            <a href="equipe.html" class="nav-link">
+              <span class="material-symbols-rounded">groups</span>
+              <span class="nav-label">Equipe</span>
+            </a>
+            <span class="nav-tooltip"
+              >Saiba mais sobre a equipe de desenvolvimento!</span
+            >
+          </li>
+        </ul>
+
+        <!--Segunda Metade(bottom)-->
+        <ul class="secondary-nav">
+          <a
+            href="https://www.gov.br/observatorio/pt-br"
+            class="bottom-logo"
+            target="_blank"
+          >
+            <img
+              src="/static/images/5.png"
+              alt="logo"
+              height="70px"
+              width="210px"
+            />
+          </a>
+        </ul>
+      </nav>
+    </aside>
+    <script src="/static/js/script.js"></script>
+
+    <!-- Conteúdo Principal -->
+
+    <div class="container-contato">
+      <div class="form">
+        <!-- Cabeçalho -->
+        <div class="contact-info">
+          <h3 class="title">Fale Conosco!</h3>
+          <p class="text">
+            Estamos aqui para ouvir você! Se tiver dúvidas, sugestões ou
+            precisar de ajuda, entre em contato conosco. Nossa equipe está
+            pronta para responder o mais rápido possível.
+          </p>
+
+          <!-- Informações -->
+          <div class="info">
+            <div class="information">
+              <span #="icon" class="material-symbols-outlined">
+                globe_location_pin
+              </span>
+              <p>
+                R. Gen. José Cristino, 77 Vasco da Gama, Rio de Janeiro RJ,
+                20921-400
+              </p>
+            </div>
+            <div class="information">
+              <span #="icon" class="material-symbols-outlined"> mail </span>
+              <p>ditin@on.br</p>
+            </div>
+            <div class="information">
+              <span #="icon" class="material-symbols-outlined">
+                phone_in_talk
+              </span>
+              <p>21 99999-9999</p>
+            </div>
+          </div>
+          <!-- Redes Sociais-->
+          <div class="social-media">
+            <p>Conecte-se conosco:</p>
+            <div class="social-icons">
+              <a
+                href="https://www.facebook.com/observatorionacional/?locale=pt_BR"
+                target="_blank"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a href="https://x.com/obs_nacional" target="_blank">
+                <i class="fa-brands fa-twitter"></i>
+              </a>
+              <a
+                href="https://www.instagram.com/observatorionacional/"
+                target="_blank"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/company/observat-rio-nacional/?originalSubdomain=br"
+                target="_blank"
+              >
+                <i class="fa-brands fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <!-- Form -->
+
+        <div class="contact-form">
+          <span class="circle-one"></span>
+          <span class="circle-two"></span>
+
+          <form action="contato.html" autocomplete="off">
+            <h3 class="title">Envie uma Mensagem!</h3>
+
+            <div class="input-container">
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="input"
+                required
+                placeholder="Digite seu nome ..."
+              />
+            </div>
+
+            <div class="input-container">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="input"
+                required
+                placeholder="Digite seu melhor email ..."
+              />
+            </div>
+
+            <div class="input-container">
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                class="input"
+                placeholder="Informe seu telefone ..."
+                required
+              />
+            </div>
+
+            <div class="input-container-textarea">
+              <textarea
+                id="message"
+                name="message"
+                class="input"
+                required
+                placeholder="Digite sua mensagem ..."
+              ></textarea>
+            </div>
+
+            <input type="submit" value="Send" class="btn" />
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/static/js/contato.js"></script>
+  </body>
+</html>
