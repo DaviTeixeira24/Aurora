@@ -238,3 +238,54 @@ body {
     margin-left: 0;
   }
 }
+
+.main-content-sobre h1 {
+  margin: 20px;
+  font-size: 28px;
+}
+
+.container {
+  display: flex;
+  gap: 40px;
+  padding: 0 40px;
+  margin-top: 20px;
+}
+
+.indice {
+  background-color: #e5f0fa;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 200px;
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.indice ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.indice li {
+  margin-bottom: 15px;
+}
+
+.indice a {
+  color: #005377;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.indice a:hover {
+  text-decoration: underline;
+}
+
+.conteudo section {
+  margin-bottom: 60px;
+}
+
+.conteudo h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
