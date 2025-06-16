@@ -234,8 +234,20 @@ body {
     display: none;
   }
 
+  body {
+    flex-direction: column;
+  }
   .main-content {
     margin-left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    flex-shrink: 0;
+    position: relative;
   }
 }
 
