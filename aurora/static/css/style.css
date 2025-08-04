@@ -1,6 +1,4 @@
-/* Importação de Fontes */
 @import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Poppins:wght@400;500;600;700&display=swap");
-
 /* Estilos Globais */
 * {
   margin: 0;
@@ -9,20 +7,24 @@
   box-sizing: border-box;
 }
 
-body {
+.layout {
   display: flex;
+  width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #dfe6eb, #c3ced3); /* Gradiente suave */
 }
 
-/* Menu Lateral */
+/*! Sidebar */
 .sidebar {
   background: #00324b;
   width: 300px;
-  height: 100vh;
+  /* margin: 16px;
+  border-radius: 16px;*/
+  flex-shrink: 0;
+  position: fixed;
+  height: calc(100vh); /* - 32px */
   transition: 0.6s ease;
   z-index: 100;
-  position: fixed; /* importante para desktop */
+  position: fixed;
   top: 0;
   left: 0;
 }
@@ -44,7 +46,7 @@ body {
   height: 60px;
   display: block;
   object-fit: contain;
-
+  border-radius: 50%;
   pointer-events: none;
 }
 
@@ -164,16 +166,19 @@ body {
 
 .sidebar-nav .secondary-nav {
   position: absolute;
-  bottom: 30px;
+  bottom: 0;
   width: 100%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 50px; /* opcional */
 }
 
 .sidebar-nav .secondary-nav .bottom-logo img {
   transition: opacity 0.6s ease;
-  width: 190px;
-  height: 55px;
-  position: relative;
-  align-items: end;
+  align-content: left;
+  width: 320px;
+  height: 80px;
 }
 
 .sidebar.collapsed .sidebar-nav .secondary-nav .bottom-logo img {
@@ -181,46 +186,28 @@ body {
   pointer-events: none;
 }
 
-@media (max-width: 1024px) {
-  body {
-    flex-direction: column;
-  }
-
-  .main-content {
-    margin-left: 0 !important;
-    width: 100%;
-    padding: 15px;
-  }
-
-  .sidebar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    z-index: 10;
-  }
-
-  .sidebar-nav {
-    display: flex;
-  }
-
-  .sidebar-header .sidebar-toggler {
-    display: none;
-  }
-
-  .sidebar-header .menu-toggler {
-    display: flex;
-  }
-
-  .sidebar-nav .secondary-nav {
-    display: none;
-  }
-
-  .sidebar-nav .nav-list {
-    padding: 10px;
-  }
+.bottom-logo-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px; /* Espaço opcional */
 }
 
-/* Conteúdo Principal */
+.bottom-logo img {
+  width: 120px; /* Ajuste conforme seu gosto */
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/*! Main-Content */
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dfe6eb, #c3ced3); /* Gradiente suave */
+}
+
 .main-content {
   flex-grow: 1;
   position: relative;
@@ -229,6 +216,13 @@ body {
   align-items: center;
   height: auto;
   pointer-events: auto;
+  margin-left: 300px;
+  padding: 20px;
+  transition: margin-left 0.6s ease;
+}
+
+.sidebar.collapsed ~ .main-content {
+  margin-left: 95px;
 }
 
 .container {
@@ -359,4 +353,111 @@ h1 {
   margin-top: 20px;
   text-align: center;
   font-style: italic;
+}
+
+/*! Responsividade (Sidebar)*/
+@media (max-width: 1024px) {
+  .sidebar {
+    height: 56px;
+    overflow-y: hidden;
+    width: calc(100% - 26px);
+    max-height: calc(100vh - 26px);
+    scrollbar-width: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar.menu-active {
+    overflow-y: auto;
+  }
+
+  .sidebar-header {
+    position: sticky;
+    top: 0;
+    z-index: 20;
+    background: #00324b;
+    padding: 8px 10px;
+    border-radius: 16px;
+  }
+
+  .sidebar-header .header-logo img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .sidebar-header .sidebar-toggler {
+    display: none;
+  }
+
+  .sidebar-header .menu-toggler {
+    display: flex;
+    height: 40px;
+    width: 40px;
+  }
+
+  .sidebar-header .menu-toggler span {
+    font-size: 1.9rem;
+  }
+
+  .sidebar-nav .nav-list {
+    padding: 0 10px;
+  }
+
+  .sidebar-nav .nav-link {
+    gap: 10px;
+    padding: 10px;
+    font-size: 1rem;
+  }
+
+  .sidebar-nav .nav-link .nav-icon {
+    font-size: 1.3rem;
+  }
+  .sidebar-nav .secondary-nav img {
+    display: none;
+  }
+
+  .main-content {
+    margin-left: 0;
+  }
+}
+
+/*! Responsividade(Main-Content)*/
+@media (max-width: 1024px) {
+  body {
+    display: block; /* Faz a sidebar ficar acima do conteúdo */
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-radius: 0;
+  }
+
+  .main-content {
+    margin-left: 0;
+    padding: 20px 10px;
+    display: block;
+  }
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0 15px;
+  }
+
+  .input-area {
+    width: 100%;
+  }
+
+  #chat-history {
+    height: 350px; /* altura menor para telas pequenas */
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .beta-tag {
+    font-size: 18px;
+  }
 }
