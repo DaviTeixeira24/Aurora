@@ -20,99 +20,87 @@
 
   <body>
     <!-- Sidebar -->
-
-    <aside class="sidebar">
-      <!-- Sidebar Header -->
-      <header class="sidebar-header">
-        <a class="header-logo">
-          <img src="http://servicos.on.br/Logo.png" alt="Logo" />
-        </a>
-        <button class="toggler sidebar-toggler">
-          <span class="material-symbols-rounded"> chevron_left </span>
-        </button>
-        <button class="toggler menu-toggler">
-          <span class="material-symbols-rounded"> menu </span>
-        </button>
-      </header>
-
-      <!-- Sidebar Nav -->
-      <nav class="sidebar-nav">
-        <!--Primeira Metade(top)-->
-        <ul class="nav-list primary-nav">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">
-              <span class="material-symbols-rounded">chat</span>
-              <span class="nav-label">Chat</span>
-            </a>
-            <span class="nav-tooltip">Inicie uma conversa com a Aurora!</span>
-          </li>
-
-          <li class="nav-item">
-            <a href="sobre.html" class="nav-link">
-              <span class="material-symbols-rounded">info</span>
-              <span class="nav-label">Sobre</span>
-            </a>
-            <span class="nav-tooltip">Descubra tudo sobre a Aurora!</span>
-          </li>
-
-          <li class="nav-item">
-            <a href="contato.html" class="nav-link">
-              <span class="material-symbols-rounded">call</span>
-              <span class="nav-label">Contato</span>
-            </a>
-            <span class="nav-tooltip">Precisa de ajuda? Fale conosco!</span>
-          </li>
-
-          <li class="nav-item">
-            <a href="equipe.html" class="nav-link">
-              <span class="material-symbols-rounded">groups</span>
-              <span class="nav-label">Equipe</span>
-            </a>
-            <span class="nav-tooltip"
-              >Saiba mais sobre a equipe de desenvolvimento!</span
-            >
-          </li>
-        </ul>
-
-        <!--Segunda Metade(bottom)-->
-        <ul class="secondary-nav">
-          <a class="bottom-logo" target="_blank">
-            <img
-              src="/static/images/LogoAuroraTexto.png"
-              alt="logo"
-              height="70px"
-              width="210px"
-            />
+    <div class="layout">
+      <aside class="sidebar">
+        <!-- Sidebar Header -->
+        <header class="sidebar-header">
+          <a class="header-logo">
+            <img src="http://servicos.on.br/Logo.png" alt="Logo" />
           </a>
-        </ul>
-      </nav>
-    </aside>
-    <script src="/static/js/sidebar.js"></script>
-
-    <!-- Conteúdo Principal -->
-    <div class="main-content">
-      <div class="container">
-        <span class="beta-tag">beta</span>
-        <h1>Converse com a Aurora</h1>
-        <p class="description">
-          Sou uma Inteligencia Artificial criada a partir de relátorios e<br />
-          estudos cientificos sobre astronomia e geofisica
-        </p>
-
-        <div id="chat-history"></div>
-        <div class="input-area">
-          <input
-            type="text"
-            id="user-input"
-            placeholder="Digite sua mensagem ..."
-          />
-          <button id="send-button">
-            <span class="material-symbols-rounded"> send </span>
+          <button class="toggler sidebar-toggler">
+            <span class="material-symbols-rounded"> chevron_left </span>
           </button>
+          <button class="toggler menu-toggler">
+            <span class="material-symbols-rounded"> menu </span>
+          </button>
+        </header>
+
+        <!-- Sidebar Nav -->
+        <nav class="sidebar-nav">
+          <!--Primeira Metade(top)-->
+          <ul class="nav-list primary-nav">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <span class="material-symbols-rounded">chat</span>
+                <span class="nav-label">Chat</span>
+              </a>
+              <span class="nav-tooltip">Inicie uma conversa com a Aurora!</span>
+            </li>
+
+            <li class="nav-item">
+              <a href="sobre.html" class="nav-link">
+                <span class="material-symbols-rounded">info</span>
+                <span class="nav-label">Sobre</span>
+              </a>
+              <span class="nav-tooltip">Descubra tudo sobre a Aurora!</span>
+            </li>
+
+            <li class="nav-item">
+              <a href="contato.html" class="nav-link">
+                <span class="material-symbols-rounded">call</span>
+                <span class="nav-label">Contato</span>
+              </a>
+              <span class="nav-tooltip">Precisa de ajuda? Fale conosco!</span>
+            </li>
+          </ul>
+
+          <!--Segunda Metade(bottom)-->
+          <ul class="secondary-nav">
+            <li class="nav-item bottom-logo-wrapper">
+              <a class="bottom-logo" target="_blank">
+                <img src="/static/images/LogoAuroraTexto.png" alt="logo" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <script src="/static/js/sidebar.js"></script>
+
+      <!-- Conteúdo Principal -->
+      <div class="main-content">
+        <div class="container">
+          <span class="beta-tag">beta</span>
+          <h1>Converse com a Aurora</h1>
+          <p class="description">
+            Sou uma Inteligencia Artificial criada a partir de relátorios e<br />
+            estudos cientificos sobre astronomia e geofisica
+          </p>
+
+          <div id="chat-history"></div>
+          <div class="input-area">
+            <input
+              type="text"
+              id="user-input"
+              placeholder="Digite sua mensagem ..."
+            />
+            <button id="send-button">
+              <span class="material-symbols-rounded"> send </span>
+            </button>
+          </div>
+          <p class="advice">
+            Aurora é uma inteligência artificial e pode cometer erros.
+          </p>
         </div>
-        <p class="advice">
-          Aurora é uma inteligência artificial e pode cometer erros.
-        </p>
       </div>
     </div>
     <script src="/static/js/chat.js"></script>

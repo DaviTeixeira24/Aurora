@@ -20,117 +20,124 @@
 
   <body>
     <!-- Sidebar -->
-
-    <aside class="sidebar">
-      <!-- Sidebar Header -->
-      <header class="sidebar-header">
-        <a class="header-logo">
-          <img src="http://servicos.on.br/Logo.png" alt="Logo" />
-        </a>
-        <button class="toggler sidebar-toggler">
-          <span class="material-symbols-rounded"> chevron_left </span>
-        </button>
-        <button class="toggler menu-toggler">
-          <span class="material-symbols-rounded"> menu </span>
-        </button>
-      </header>
-
-      <!-- Sidebar Nav -->
-      <nav class="sidebar-nav">
-        <!--Primeira Metade(top)-->
-        <ul class="nav-list primary-nav">
-          <li class="nav-item">
-            <a href="index.html" class="nav-link">
-              <span class="material-symbols-rounded">chat</span>
-              <span class="nav-label">Chat</span>
-            </a>
-            <span class="nav-tooltip">Inicie uma conversa com a Aurora!</span>
-          </li>
-
-          <li class="nav-item">
-            <a href="sobre.html" class="nav-link">
-              <span class="material-symbols-rounded">info</span>
-              <span class="nav-label">Sobre</span>
-            </a>
-            <span class="nav-tooltip">Descubra tudo sobre a Aurora!</span>
-          </li>
-
-          <li class="nav-item">
-            <a href="contato.html" class="nav-link">
-              <span class="material-symbols-rounded">call</span>
-              <span class="nav-label">Contato</span>
-            </a>
-            <span class="nav-tooltip">Precisa de ajuda? Fale conosco!</span>
-          </li>
-
-          <li class="nav-item">
-            <a href="equipe.html" class="nav-link">
-              <span class="material-symbols-rounded">groups</span>
-              <span class="nav-label">Equipe</span>
-            </a>
-            <span class="nav-tooltip"
-              >Saiba mais sobre a equipe de desenvolvimento!</span
-            >
-          </li>
-        </ul>
-
-        <!--Segunda Metade(bottom)-->
-        <ul class="secondary-nav">
-          <a
-            href="https://www.gov.br/observatorio/pt-br"
-            class="bottom-logo"
-            target="_blank"
-          >
-            <img
-              src="/static/images/5.png"
-              alt="logo"
-              height="70px"
-              width="210px"
-            />
+    <div class="layout">
+      <aside class="sidebar">
+        <!-- Sidebar Header -->
+        <header class="sidebar-header">
+          <a class="header-logo">
+            <img src="http://servicos.on.br/Logo.png" alt="Logo" />
           </a>
-        </ul>
-      </nav>
-    </aside>
-    <script src="/static/js/sidebar.js"></script>
+          <button class="toggler sidebar-toggler">
+            <span class="material-symbols-rounded"> chevron_left </span>
+          </button>
+          <button class="toggler menu-toggler">
+            <span class="material-symbols-rounded"> menu </span>
+          </button>
+        </header>
 
-    <!-- Conteúdo Principal -->
+        <!-- Sidebar Nav -->
+        <nav class="sidebar-nav">
+          <!--Primeira Metade(top)-->
+          <ul class="nav-list primary-nav">
+            <li class="nav-item">
+              <a href="index.html" class="nav-link">
+                <span class="material-symbols-rounded">chat</span>
+                <span class="nav-label">Chat</span>
+              </a>
+              <span class="nav-tooltip">Inicie uma conversa com a Aurora!</span>
+            </li>
 
-    <div class="main-content-sobre">
-      <div class="container">
-        <!-- Índice lateral -->
-        <aside class="indice">
-          <nav>
-            <ul>
-              <li><a href="#introducao">Introdução</a></li>
-              <li><a href="#missao">Missão</a></li>
-              <li><a href="#resultados">Resultados Esperados</a></li>
-              <li><a href="#metodologia">Metodologia</a></li>
-            </ul>
-          </nav>
-        </aside>
+            <li class="nav-item">
+              <a href="sobre.html" class="nav-link">
+                <span class="material-symbols-rounded">info</span>
+                <span class="nav-label">Sobre</span>
+              </a>
+              <span class="nav-tooltip">Descubra tudo sobre a Aurora!</span>
+            </li>
 
-        <!-- Conteúdo das seções -->
-        <main class="conteudo">
-          <section id="introducao">
-            <h2>Introdução</h2>
-            <p>Breve apresentação do projeto...</p>
-          </section>
+            <li class="nav-item">
+              <a href="contato.html" class="nav-link">
+                <span class="material-symbols-rounded">call</span>
+                <span class="nav-label">Contato</span>
+              </a>
+              <span class="nav-tooltip">Precisa de ajuda? Fale conosco!</span>
+            </li>
+          </ul>
 
-          <section id="missao">
-            <h2>Missão</h2>
-            <p>Objetivo central da iniciativa...</p>
-          </section>
+          <!--Segunda Metade(bottom)-->
+          <ul class="secondary-nav">
+            <li class="nav-item bottom-logo-wrapper">
+              <a class="bottom-logo" target="_blank">
+                <img src="/static/images/LogoAuroraTexto.png" alt="logo" />
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </aside>
+      <script src="/static/js/sidebar.js"></script>
 
-          <section id="resultados">
-            <h2>Resultados Esperados</h2>
-            <p>Impactos e benefícios esperados...</p>
-          </section>
+      <!-- Conteúdo Principal -->
 
-          <section id="metodologia">
-            <h2>Metodologia</h2>
-            <p>Descrição das metodologias utilizadas...</p>
-          </section>
-        </main>
+      <div class="main-content-sobre">
+        <div class="container">
+          <!-- Índice lateral -->
+          <aside class="indice">
+            <p class="titulo-indice">Índice</p>
+
+            <nav>
+              <ul>
+                <li><a href="#introducao">Introdução</a></li>
+                <li><a href="#missao">Missão</a></li>
+                <li><a href="#resultados">Resultados Esperados</a></li>
+                <li><a href="#metodologia">Metodologia</a></li>
+              </ul>
+            </nav>
+          </aside>
+
+          <!-- Conteúdo das seções -->
+          <main class="conteudo">
+            <section id="introducao">
+              <h2>Introdução</h2>
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Repudiandae iusto exercitationem accusantium, veritatis,
+                sapiente possimus necessitatibus dolor nulla excepturi impedit
+                cumque porro eos molestias explicabo voluptas pariatur! Totam,
+                vel aliquam!
+              </p>
+            </section>
+
+            <section id="missao">
+              <h2>Missão</h2>
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vel
+                maxime quis neque aut nulla perferendis! Fugiat eum, ratione
+                dolores ut, nam exercitationem tenetur alias totam enim non vel,
+                harum ipsam.
+              </p>
+            </section>
+
+            <section id="resultados">
+              <h2>Resultados Esperados</h2>
+              <p>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Magnam, eligendi. Harum in dolor unde natus molestiae rem
+                blanditiis, aliquam nostrum voluptate laboriosam? Necessitatibus
+                numquam, saepe illum labore totam non rem.
+              </p>
+            </section>
+
+            <section id="metodologia">
+              <h2>Metodologia</h2>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam
+                obcaecati, perferendis quis mollitia minus id. Sed, sequi
+                possimus deserunt velit, provident, quam pariatur ut dolorum
+                iste culpa veniam autem assumenda?
+              </p>
+            </section>
+          </main>
+        </div>
       </div>
     </div>
   </body>
