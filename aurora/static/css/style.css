@@ -366,6 +366,12 @@ h1 {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
+  .sidebar-nav .secondary-nav {
+    position: relative;
+    bottom: auto;
+    padding-bottom: 10px;
+  }
+
   .sidebar.menu-active {
     overflow-y: auto;
   }
@@ -411,6 +417,7 @@ h1 {
   .sidebar-nav .nav-link .nav-icon {
     font-size: 1.3rem;
   }
+
   .sidebar-nav .secondary-nav img {
     display: none;
   }
@@ -423,7 +430,7 @@ h1 {
 /*! Responsividade(Main-Content)*/
 @media (max-width: 1024px) {
   body {
-    display: block; /* Faz a sidebar ficar acima do conteúdo */
+    display: block;
   }
 
   .sidebar {
@@ -431,12 +438,6 @@ h1 {
     height: auto;
     position: relative;
     border-radius: 0;
-  }
-
-  .main-content {
-    margin-left: 0;
-    padding: 20px 10px;
-    display: block;
   }
 
   .container {
@@ -450,7 +451,7 @@ h1 {
   }
 
   #chat-history {
-    height: 350px; /* altura menor para telas pequenas */
+    height: 350px;
   }
 
   h1 {
@@ -459,5 +460,13 @@ h1 {
 
   .beta-tag {
     font-size: 18px;
+  }
+}
+
+/*! Responsividade(Layout)*/
+@media (max-width: 1024px) {
+  .layout {
+    margin-left: 0;
+    display: block;
   }
 }

@@ -286,12 +286,18 @@ body {
 /*! Responsividade(sidebar)*/
 @media (max-width: 1024px) {
   .sidebar {
-    height: 56px;
-    overflow-y: hidden;
+    height: 100vh;
+    overflow-y: auto;
     width: calc(100% - 26px);
     max-height: calc(100vh - 26px);
     scrollbar-width: none;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .sidebar-nav .secondary-nav {
+    position: relative;
+    bottom: auto;
+    padding-bottom: 10px;
   }
 
   .sidebar.menu-active {
@@ -351,7 +357,7 @@ body {
 /*! Responsividade(Main-Content)*/
 @media (max-width: 1024px) {
   body {
-    display: block; /* importante: para quebrar o layout empilhando */
+    display: block;
   }
 
   .sidebar {
@@ -366,7 +372,7 @@ body {
   }
 
   .container {
-    flex-direction: column; /* empilha o índice e conteúdo */
+    flex-direction: column;
     gap: 20px;
     padding: 0 20px;
   }
@@ -383,5 +389,21 @@ body {
 
   .indice a {
     font-size: 16px;
+  }
+}
+
+/*! Responsividade(Layout)*/
+@media (max-width: 1024px) {
+  .layout {
+    width: 100%;
+    margin-left: 0;
+    display: block;
+  }
+
+  .main-content,
+  .main-content-sobre {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 15px;
   }
 }

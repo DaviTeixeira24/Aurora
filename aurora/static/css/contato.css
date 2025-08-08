@@ -430,6 +430,12 @@ textarea.input {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
+  .sidebar-nav .secondary-nav {
+    position: relative;
+    bottom: auto;
+    padding-bottom: 10px;
+  }
+
   .sidebar.menu-active {
     overflow-y: auto;
   }
@@ -551,5 +557,18 @@ textarea.input {
   .main-content {
     margin-left: 0;
     padding: 20px 10px;
+  }
+}
+
+/*! Responsividade(Layout) */
+@media (max-width: 1024px) {
+  .layout {
+    display: block;
+    margin-left: 0;
+  }
+
+  .layout > * {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 }
