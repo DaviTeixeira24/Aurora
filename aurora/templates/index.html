@@ -24,8 +24,17 @@
       <aside class="sidebar">
         <!-- Sidebar Header -->
         <header class="sidebar-header">
-          <a class="header-logo">
-            <img src="http://servicos.on.br/Logo.png" alt="Logo" />
+          <a class="header-logo-aberta">
+            <img
+              src="/static/images/LogoObservatorioCompleta.png"
+              alt="Logo-aberta"
+            />
+          </a>
+          <a class="header-logo-collapsed">
+            <img
+              src="http://servicos.on.br/Logo.png"
+              alt="header-logo-colapsed"
+            />
           </a>
           <button class="toggler sidebar-toggler">
             <span class="material-symbols-rounded"> chevron_left </span>
@@ -70,7 +79,16 @@
               <a class="bottom-logo" target="_blank">
                 <img
                   src="/static/images/LogoAuroraTextoBranco.png"
-                  alt="logo"
+                  alt="Logo Aurora"
+                />
+              </a>
+            </li>
+
+            <li class="nav-item bottom-logo-wrapper-2">
+              <a class="bottom-logo-2" target="_blank">
+                <img
+                  src="/static/images/logoONMCTItransparentefundobranco.png"
+                  alt="Logo ON"
                 />
               </a>
             </li>
@@ -107,5 +125,122 @@
       </div>
     </div>
     <script src="/static/js/chat.js"></script>
+    <script>
+      const chatHistory = document.getElementById("chat-history");
+      const userInput = document.getElementById("user-input");
+      const sendButton = document.getElementById("send-button");
+
+      let conversationHistory = [
+        {
+          role: "system",
+          content:
+            "Olá! Eu sou a Aurora, uma jovem pesquisadora apaixonada por astronomia e geofísica. Respondo com no máximo 3 frases, de forma clara e objetiva. Só respondo perguntas relacionadas a ciência, especialmente astronomia e geofísica. Perguntas sobre política, religião, esportes, sexo ou qualquer tema sensível devem ser recusadas educadamente, com uma breve explicação e sem aprofundar. Evite explicações longas. Sempre mantenha o foco científico.",
+        },
+      ];
+
+      sendButton.addEventListener("click", sendMessage);
+      userInput.addEventListener("keypress", function (e) {
+        if (e.key === "Enter") sendMessage();
+      });
+
+      async function playAudioStream(audioFiles) {
+        try {
+          const response = await fetch("/stream-audio", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ audio_files: audioFiles }),
+          });
+
+          if (!response.ok || !response.body) {
+            console.error("Falha no streaming do áudio");
+            return;
+          }
+
+          const audioContext = new AudioContext();
+          const reader = response.body.getReader();
+
+          let receivedLength = 0; // total bytes recebidos
+          let chunks = [];
+
+          while (true) {
+            const { done, value } = await reader.read();
+            if (done) break;
+            chunks.push(value);
+            receivedLength += value.length;
+          }
+
+          // Combinar todos os chunks em um único Uint8Array
+          let audioBuffer = new Uint8Array(receivedLength);
+          let position = 0;
+          for (let chunk of chunks) {
+            audioBuffer.set(chunk, position);
+            position += chunk.length;
+          }
+
+          // Decodificar e tocar
+          const decodedData = await audioContext.decodeAudioData(
+            audioBuffer.buffer
+          );
+          const source = audioContext.createBufferSource();
+          source.buffer = decodedData;
+          source.connect(audioContext.destination);
+          source.start();
+        } catch (error) {
+          console.error("Erro ao tocar áudio em streaming:", error);
+        }
+      }
+
+      function appendMessage(sender, message, className) {
+        const messageElement = document.createElement("div");
+        messageElement.className = `message ${className}`;
+
+        if (className === "assistant-message") {
+          messageElement.innerHTML = `
+      <img src="/static/images/LogoAurora.png" alt="Assistente" class="profile-pic">
+      <div class="message-content">
+        <strong>${sender}:</strong> ${message}
+      </div>
+      `;
+        } else {
+          messageElement.innerHTML = `${message}`;
+        }
+
+        chatHistory.appendChild(messageElement);
+        chatHistory.scrollTop = chatHistory.scrollHeight;
+      }
+
+      function sendMessage() {
+        const message = userInput.value.trim();
+        if (!message) return;
+
+        appendMessage("Você", message, "user-message");
+        userInput.value = "";
+
+        axios
+          .post("/chat", {
+            user_input: message,
+            conversation_history: conversationHistory,
+          })
+          .then(async function (response) {
+            const data = response.data;
+            const assistantResponse = data.response;
+            conversationHistory = data.conversation_history;
+            appendMessage("Aurora", assistantResponse, "assistant-message");
+
+            if (data.audio_files && data.audio_files.length > 0) {
+              // Chama a função de streaming que reproduz o áudio
+              await playAudioStream(data.audio_files);
+            }
+          })
+          .catch(function (error) {
+            console.error("Erro:", error);
+            appendMessage(
+              "Erro",
+              "Ocorreu um erro ao processar sua solicitação.",
+              "assistant-message"
+            );
+          });
+      }
+    </script>
   </body>
 </html>
