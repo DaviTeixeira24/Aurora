@@ -1,87 +1,64 @@
-const chatHistory = document.getElementById("chat-history");
-const userInput = document.getElementById("user-input");
-const sendButton = document.getElementById("send-button");
-const voiceToggle = document.getElementById("voice-toggle");
+const sidebar = document.querySelector("#sidebar");
+const hide_sidebar = document.querySelector(".hide-sidebar");
+const new_chat_button = document.querySelector(".new-chat");
 
-let conversationHistory = [
-  { role: "system", content: "Você é um assistente atencioso." },
-];
-let voiceEnabled = true;
+hide_sidebar.addEventListener("click", function () {
+  sidebar.classList.toggle("hidden");
+});
 
-sendButton.addEventListener("click", sendMessage);
-userInput.addEventListener("keypress", function (e) {
-  if (e.key === "Enter") {
-    sendMessage();
+const user_menu = document.querySelector(".user-menu ul");
+const show_user_menu = document.querySelector(".user-menu button");
+
+show_user_menu.addEventListener("click", function () {
+  if (user_menu.classList.contains("show")) {
+    user_menu.classList.toggle("show");
+    setTimeout(function () {
+      user_menu.classList.toggle("show-animate");
+    }, 200);
+  } else {
+    user_menu.classList.toggle("show-animate");
+    setTimeout(function () {
+      user_menu.classList.toggle("show");
+    }, 50);
   }
 });
 
-voiceToggle.addEventListener("click", function () {
-  voiceEnabled = !voiceEnabled;
-  if (voiceEnabled) {
-    voiceToggle.textContent = "Voz: Ligada";
-    voiceToggle.classList.remove("off");
-  } else {
-    voiceToggle.textContent = "Voz: Desligada";
-    voiceToggle.classList.add("off");
+const models = document.querySelectorAll(".model-selector button");
+
+for (const model of models) {
+  model.addEventListener("click", function () {
+    document
+      .querySelector(".model-selector button.selected")
+      ?.classList.remove("selected");
+    model.classList.add("selected");
+  });
+}
+
+const message_box = document.querySelector("#message");
+
+message_box.addEventListener("keyup", function () {
+  message_box.style.height = "auto";
+  let height = message_box.scrollHeight + 2;
+  if (height > 200) {
+    height = 200;
   }
+  message_box.style.height = height + "px";
 });
 
-function sendMessage() {
-  const message = userInput.value.trim();
-  if (message) {
-    appendMessage("Você", message, "user-message");
-    userInput.value = "";
+function show_view(view_selector) {
+  document.querySelectorAll(".view").forEach((view) => {
+    view.style.display = "none";
+  });
 
-    axios
-      .post("/chat", {
-        user_input: message,
-        conversation_history: conversationHistory,
-        voice_enabled: voiceEnabled,
-      })
-      .then(function (response) {
-        const assistantResponse = response.data.response;
-        appendMessage("Aurora", assistantResponse, "assistant-message");
-        conversationHistory = response.data.conversation_history;
-
-        if (voiceEnabled && response.data.audio_file) {
-          const audio = new Audio(`/stream-audio/${response.data.audio_file}`);
-          audio.play();
-        }
-      })
-      .catch(function (error) {
-        console.error("Erro:", error);
-        appendMessage(
-          "Erro",
-          "Ocorreu um erro ao processar sua solicitação.",
-          "assistant-message"
-        );
-      });
-  }
+  document.querySelector(view_selector).style.display = "flex";
 }
 
-function appendMessage(sender, message, className) {
-  const messageElement = document.createElement("div");
-  messageElement.className = `message ${className}`;
+new_chat_button.addEventListener("click", function () {
+  show_view(".new-chat-view");
+});
 
-  if (className === "assistant-message") {
-    messageElement.innerHTML = `
-      <img src="/static/images/LogoAurora.png" alt="Assistente" class="profile-pic">
-      <div class="message-content">
-        <strong>${sender}:</strong> ${message}
-      </div>
-    `;
-  } else {
-    messageElement.innerHTML = `${message}`;
-  }
-
-  chatHistory.appendChild(messageElement);
-  chatHistory.scrollTop = chatHistory.scrollHeight;
-}
-
-/*function appendMessage(sender, message, className) {
-  const messageElement = document.createElement("div");
-  messageElement.className = `message ${className}`;
-  messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
-  chatHistory.appendChild(messageElement);
-  chatHistory.scrollTop = chatHistory.scrollHeight;
-}*/
+document.querySelectorAll(".conversation-button").forEach((button) => {
+  button.addEventListener("click", function () {
+    show_view(".conversation-view");
+  });
+});
