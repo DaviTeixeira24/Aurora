@@ -322,6 +322,43 @@ body {
 
 .conteudo p {
   color: #19516b;
+  text-align: justify;
+}
+
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  background-color: #a3bfcb;
+  border: 1.5px solid #005377;
+  border-radius: 10px;
+  padding: 15px;
+  margin-top: 15px;
+}
+
+.box {
+  background-color: #dfe6eb;
+  border: 1.5px solid #005377;
+  border-radius: 10px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.foto-equipe {
+  width: 100%;
+  height: 300px; /* altura padronizada */
+  object-fit: cover; /* corta proporcionalmente */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+}
+
+.cargo {
+  color: #005377;
+  font-size: 0.9rem;
 }
 
 /*! Responsividade(sidebar)*/
