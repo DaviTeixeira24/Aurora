@@ -1,18 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Heebo:wght@100..900&family=Poppins:wght@400;500;600;700&display=swap");
-/* Estilos Globais */
-* {
-  margin: 0;
-  padding: 0;
-  font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
-}
-
 .layout {
   display: flex;
   width: 100%;
   min-height: 100vh;
 }
-
 /*! Sidebar */
 .sidebar {
   background: #00324b;
@@ -230,176 +220,17 @@
 }
 
 .bottom-logo-2 img {
-  width: 100px;
+  width: 300px;
   max-width: 100%;
   height: auto;
   object-fit: contain;
 }
-/*! Main Content */
-body {
-  display: flex;
-  min-height: 100vh;
-  background: linear-gradient(135deg, #dfe6eb, #c3ced3); /* Gradiente suave */
-}
 
-.main-content-sobre {
-  margin-left: 300px;
-  padding: 20px;
-  flex-grow: 1;
-  transition: margin-left 0.6s ease;
-}
-
-.sidebar.collapsed ~ .main-content-sobre {
-  margin-left: 95px;
-}
-
-.main-content-sobre h1 {
-  margin: 20px;
-  font-size: 28px;
-}
-
-.container {
-  display: flex;
-  gap: 300px;
-  padding: 0 40px;
-  margin-top: 20px;
-}
-
-.indice {
-  background-color: #a3bfcb;
-  padding: 20px;
-  border-radius: 10px;
-  border: 1.5px solid #005377;
-  min-width: 200px;
-  position: sticky;
-  top: 20px;
-  height: fit-content;
-}
-
-.titulo-indice {
-  margin-bottom: 7px;
-  color: #005377;
-  font-weight: bold;
-  text-decoration: none;
-  border-bottom: 1.5px solid #005377;
-}
-
-.indice ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.indice li {
-  margin-bottom: 15px;
-}
-
-.indice a {
-  color: #005377;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.indice a:hover {
-  text-decoration: underline;
-}
-
-.conteudo section {
-  margin-bottom: 60px;
-}
-
-.conteudo h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  color: #19516b;
-}
-
-.link-texto {
-  color: #19516b;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.informaçôes {
-  color: #19516b;
-  text-align: justify;
-}
-
-.boxes {
-  display: grid;
-  grid-template-columns: auto-fit, minmax(250px, 1fr);
-  gap: 20px;
-  background-color: #a3bfcb;
-  border: 1.5px solid #005377;
-  border-radius: 10px;
-  padding: 10px;
-  margin-top: 15px;
-  grid-template-rows: auto;
-  grid-auto-flow: row;
-}
-
-.boxes .titulo-box {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 10px;
-  grid-column: 1 / -1; /* ocupa toda a largura */
-}
-
-.box {
-  background-color: #dfe6eb;
-  border: 1.5px solid #005377;
-  border-radius: 10px;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.foto-equipe {
-  width: 100%;
-  height: 400px;
-  object-fit: cover; /* corta proporcionalmente */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 10px;
-}
-
-.cargo {
-  color: #005377;
-  font-size: 0.9rem;
-}
-
-.email {
-  color: #005377;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-}
-.nome {
-  color: #00324b;
-  font-size: 1.2rem;
-  font-weight: bold;
-  margin-bottom: 5px;
-}
-
-.lattes {
-  color: #005377;
-  font-size: 1rem;
-  text-decoration: none;
-  font-weight: bold;
-  transition: transform 0.2s ease;
-}
-
-.lattes:hover {
-  color: #326f8b;
-  transform: scale(1.05);
-}
-
-/*! Responsividade(sidebar)*/
+/*! Responsividade(Sidebar) */
 @media (max-width: 1024px) {
   .sidebar {
-    height: 100vh;
-    overflow-y: auto;
+    height: 56px;
+    overflow-y: hidden;
     width: calc(100% - 26px);
     max-height: calc(100vh - 26px);
     scrollbar-width: none;
@@ -463,63 +294,5 @@ body {
 
   .main-content {
     margin-left: 0;
-  }
-}
-
-/*! Responsividade(Main-Content)*/
-@media (max-width: 1024px) {
-  body {
-    display: block;
-  }
-
-  .sidebar {
-    width: 100%;
-    height: auto;
-    position: relative;
-    border-radius: 0;
-  }
-
-  .main-content-sobre {
-    padding-top: 20px;
-  }
-
-  .container {
-    flex-direction: column;
-    gap: 20px;
-    padding: 0 20px;
-  }
-
-  .indice {
-    position: relative;
-    top: 0;
-    width: 100%;
-  }
-
-  .conteudo h2 {
-    font-size: 20px;
-  }
-
-  .indice a {
-    font-size: 16px;
-  }
-
-  .informaçôes {
-    text-align: left;
-  }
-}
-
-/*! Responsividade(Layout)*/
-@media (max-width: 1024px) {
-  .layout {
-    width: 100%;
-    margin-left: 0;
-    display: block;
-  }
-
-  .main-content,
-  .main-content-sobre {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
   }
 }
