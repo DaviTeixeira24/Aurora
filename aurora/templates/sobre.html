@@ -1,101 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Aurora</title>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
-      rel="stylesheet"
-    />
+{% extends "base.html" %}
 
-    <!--Icones (googlefonts)-->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
-    />
-    <link rel="stylesheet" href="/static/css/sobre.css" />
-  </head>
+{%block title %}Sobre{% endblock %}
 
-  <body>
-    <!-- Sidebar -->
-    <div class="layout">
-      <aside class="sidebar">
-        <!-- Sidebar Header -->
-        <header class="sidebar-header">
-          <a class="header-logo-aberta">
-            <img
-              src="/static/images/LogoObservatorioCompleta.png"
-              alt="Logo-aberta"
-            />
-          </a>
-          <a class="header-logo-collapsed">
-            <img
-              src="http://servicos.on.br/Logo.png"
-              alt="header-logo-colapsed"
-            />
-          </a>
-          <button class="toggler sidebar-toggler">
-            <span class="material-symbols-rounded"> chevron_left </span>
-          </button>
-          <button class="toggler menu-toggler">
-            <span class="material-symbols-rounded"> menu </span>
-          </button>
-        </header>
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/sobre.css" />
+{% endblock %}
 
-        <!-- Sidebar Nav -->
-        <nav class="sidebar-nav">
-          <!--Primeira Metade(top)-->
-          <ul class="nav-list primary-nav">
-            <li class="nav-item">
-              <a href="index.html" class="nav-link">
-                <span class="material-symbols-rounded">chat</span>
-                <span class="nav-label">Chat</span>
-              </a>
-              <span class="nav-tooltip">Inicie uma conversa com a Aurora!</span>
-            </li>
 
-            <li class="nav-item">
-              <a href="sobre.html" class="nav-link">
-                <span class="material-symbols-rounded">info</span>
-                <span class="nav-label">Sobre</span>
-              </a>
-              <span class="nav-tooltip">Descubra tudo sobre a Aurora!</span>
-            </li>
-
-            <li class="nav-item">
-              <a href="contato.html" class="nav-link">
-                <span class="material-symbols-rounded">call</span>
-                <span class="nav-label">Contato</span>
-              </a>
-              <span class="nav-tooltip">Precisa de ajuda? Fale conosco!</span>
-            </li>
-          </ul>
-
-          <!--Segunda Metade(bottom)-->
-          <ul class="secondary-nav">
-            <li class="nav-item bottom-logo-wrapper">
-              <a class="bottom-logo" target="_blank">
-                <img
-                  src="/static/images/LogoAuroraTextoBranco.png"
-                  alt="Logo Aurora"
-                />
-              </a>
-            </li>
-
-            <li class="nav-item bottom-logo-wrapper-2">
-              <a class="bottom-logo-2" target="_blank">
-                <img src="/static/images/logo-mcti.png" alt="Logo ON" />
-              </a>
-            </li>
-          </ul>
-        </nav>
-      </aside>
-      <script src="/static/js/sidebar.js"></script>
+{% block content %}
 
       <!-- Conteúdo Principal -->
-
       <div class="main-content-sobre">
         <div class="container">
           <!-- Índice lateral -->
@@ -319,5 +233,5 @@
         </div>
       </div>
     </div>
-  </body>
-</html>
+  
+{%endblock%}

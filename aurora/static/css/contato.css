@@ -8,14 +8,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 300px;
   padding: 20px;
   flex-grow: 1;
-  transition: margin-left 0.6s ease;
-}
-
-.sidebar.collapsed ~ .container-contato {
-  margin-left: 95px;
 }
 
 .form {
@@ -33,26 +27,6 @@
 .contact-form {
   background: #19516b;
   position: relative;
-}
-
-.circle {
-  border-radius: 50%;
-  background: linear-gradient(135deg, transparent 3%, #19516b 0);
-  position: absolute;
-}
-
-.circle.one {
-  width: 130px;
-  height: 130px;
-  top: 130px;
-  right: -40px;
-}
-
-.circle.two {
-  width: 80px;
-  height: 80px;
-  top: 10px;
-  right: 30px;
 }
 
 .contact-form:before {

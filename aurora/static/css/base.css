@@ -13,6 +13,19 @@ body {
   background: linear-gradient(135deg, #dfe6eb, #c3ced3); /* Gradiente suave */
 }
 
+main {
+  flex: 1;
+  padding: 20px;
+  background: transparent; /* ou branco se quiser */
+  margin-left: 300px; /* Espaço para a sidebar */
+  transition: margin-left 0.6s ease;
+}
+
+/* Se quiser que main “recolha” junto com sidebar */
+.sidebar.collapsed ~ main {
+  margin-left: 95px;
+}
+
 .layout {
   display: flex;
   width: 100%;
