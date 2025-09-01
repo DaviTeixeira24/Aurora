@@ -1,0 +1,127 @@
+{% extends "base.html" %} {%block title %}Feedback{% endblock %} {% block
+content %}
+<div class="main-content">
+  <h1 class="text-2xl font-bold mb-4">Avalie a Aurora</h1>
+
+  <form id="form-avaliacao" class="space-y-6">
+    <div>
+      <label class="block font-semibold">1. Facilidade de uso da Aurora</label>
+      <div>
+        <input type="radio" name="facilidade" value="Muito difícil" /> Muito
+        difícil
+      </div>
+      <div>
+        <input type="radio" name="facilidade" value="Difícil" /> Difícil
+      </div>
+      <div><input type="radio" name="facilidade" value="Neutro" /> Neutro</div>
+      <div><input type="radio" name="facilidade" value="Fácil" /> Fácil</div>
+      <div>
+        <input type="radio" name="facilidade" value="Muito fácil" /> Muito fácil
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-semibold"
+        >2. Clareza e relevância das respostas</label
+      >
+      <div>
+        <input type="radio" name="clareza" value="Muito insatisfatórias" />
+        Muito insatisfatórias
+      </div>
+      <div>
+        <input type="radio" name="clareza" value="Insatisfatórias" />
+        Insatisfatórias
+      </div>
+      <div><input type="radio" name="clareza" value="Neutras" /> Neutras</div>
+      <div>
+        <input type="radio" name="clareza" value="Satisfatórias" />
+        Satisfatórias
+      </div>
+      <div>
+        <input type="radio" name="clareza" value="Muito satisfatórias" /> Muito
+        satisfatórias
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-semibold"
+        >3. A Aurora contribuiu para esclarecer sua dúvida?</label
+      >
+      <div>
+        <input type="radio" name="contribuicao" value="Sim, totalmente" /> Sim,
+        totalmente
+      </div>
+      <div>
+        <input type="radio" name="contribuicao" value="Parcialmente" />
+        Parcialmente
+      </div>
+      <div>
+        <input type="radio" name="contribuicao" value="Não contribuiu" /> Não
+        contribuiu
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-semibold">4. Você recomendaria a Aurora?</label>
+      <div><input type="radio" name="recomendacao" value="Sim" /> Sim</div>
+      <div>
+        <input type="radio" name="recomendacao" value="Talvez" /> Talvez
+      </div>
+      <div><input type="radio" name="recomendacao" value="Não" /> Não</div>
+    </div>
+
+    <div>
+      <label class="block font-semibold"
+        >5. Você pretende usar a Aurora novamente?</label
+      >
+      <div>
+        <input type="radio" name="uso_futuro" value="Sim, com certeza" /> Sim,
+        com certeza
+      </div>
+      <div><input type="radio" name="uso_futuro" value="Talvez" /> Talvez</div>
+      <div><input type="radio" name="uso_futuro" value="Não" /> Não</div>
+    </div>
+
+    <div>
+      <label class="block font-semibold">O que você mais gostou?</label>
+      <textarea
+        name="gostou"
+        rows="3"
+        class="w-full border rounded p-2"
+      ></textarea>
+    </div>
+
+    <div>
+      <label class="block font-semibold">Sugestão ou comentário</label>
+      <textarea
+        name="sugestao"
+        rows="3"
+        class="w-full border rounded p-2"
+      ></textarea>
+    </div>
+
+    <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded">
+      Enviar Avaliação
+    </button>
+  </form>
+</div>
+
+<script>
+  document
+    .getElementById("form-avaliacao")
+    .addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const data = Object.fromEntries(formData.entries());
+
+      const res = await fetch("/avaliacao", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await res.json();
+      alert(result.mensagem);
+    });
+</script>
+{% endblock %}

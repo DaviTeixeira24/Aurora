@@ -1,6 +1,13 @@
 /*! Main Content */
 
 .main-content-sobre {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #dfe6eb, #c3ced3); /* manter padrão */
+  overflow: hidden;
+  display: flex;
+  flex: 1;
   padding: 20px;
   flex-grow: 1;
 }
@@ -78,22 +85,21 @@
 
 .boxes {
   display: grid;
-  grid-template-columns: auto-fit, minmax(250px, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 20px;
   background-color: #a3bfcb;
   border: 1.5px solid #005377;
   border-radius: 10px;
-  padding: 10px;
+  padding: 20px;
   margin-top: 15px;
-  grid-template-rows: auto;
-  grid-auto-flow: row;
+  justify-content: center;
 }
 
 .boxes .titulo-box {
   width: 100%;
   text-align: center;
-  margin-bottom: 10px;
-  grid-column: 1 / -1; /* ocupa toda a largura */
+  margin: 20px 0 10px 0;
+  grid-column: 1 / -1; /* força o título ocupar toda a largura */
 }
 
 .box {
@@ -160,19 +166,24 @@
   }
 
   .main-content-sobre {
-    padding-top: 20px;
+    padding-top: 20px 0 0 0;
   }
 
   .container {
     flex-direction: column;
     gap: 20px;
     padding: 0 20px;
+    margin-top: 0;
+    align-items: center;
+    justify-content: center;
   }
 
   .indice {
     position: relative;
     top: 0;
     width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
   }
 
   .conteudo h2 {
