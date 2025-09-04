@@ -22,9 +22,9 @@ def sobre():
 def contato():
     return  render_template("contato.html")
 
-@app.route("/equipe.html")
+@app.route("/avaliacao.html")
 def equipe():
-    return render_template("equipe.html")
+    return render_template("avaliacao.html")
 
 @app.route("/index.html")
 def chat():

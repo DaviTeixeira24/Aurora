@@ -1,5 +1,15 @@
-{% extends "base.html" %} {%block title %}Feedback{% endblock %} {% block
-content %}
+{% extends "base.html" %}
+
+<!-- Titulo da página -->
+{%block title %}Avaliação{% endblock %}
+
+<!-- Importando CSS específico para a página -->
+{% block extra_css %}
+<link rel="stylesheet" href="/static/css/avaliacao.css" />
+{% endblock %}
+
+<!-- Conteudo da página-->
+{% block content %}
 <div class="main-content">
   <h1 class="text-2xl font-bold mb-4">Avalie a Aurora</h1>
 
@@ -62,6 +72,53 @@ content %}
     </div>
 
     <div>
+      <label class="block font-semibold"
+        >Você considera que a Aurora é confiável nas informações apresentadas?
+      </label>
+      <div>
+        <input type="radio" name="confiança" value="Nada confiável" /> Nada
+        confiável
+      </div>
+      <div>
+        <input type="radio" name="confiança" value="Pouco confiável" />
+        Pouco confiável
+      </div>
+      <div><input type="radio" name="confiança" value="Neutro" /> Neutro</div>
+      <div>
+        <input type="radio" name="confiança" value="Confiável" /> Confiável
+      </div>
+      <div>
+        <input type="radio" name="confiança" value="Muito Confiável" /> Muito
+        Confiável
+      </div>
+    </div>
+
+    <div>
+      <label class="block font-semibold"
+        >O tempo de resposta da Aurora foi adequado?
+      </label>
+      <div>
+        <input type="radio" name="tempoDeResposta" value="Muito lento" /> Muito
+        lento
+      </div>
+      <div>
+        <input type="radio" name="tempoDeResposta" value="Lento" />
+        Lento
+      </div>
+      <div>
+        <input type="radio" name="tempoDeResposta" value="Adequado" /> Adequado
+      </div>
+      <div>
+        <input type="radio" name="tempoDeResposta" value="Rápido" /> Rapido
+      </div>
+        
+      <div>
+        <input type="radio" name="tempoDeResposta" value="Muito Rápido" />
+        Muito rápido
+      </div>
+    
+
+    <div>
       <label class="block font-semibold">4. Você recomendaria a Aurora?</label>
       <div><input type="radio" name="recomendacao" value="Sim" /> Sim</div>
       <div>
@@ -72,7 +129,7 @@ content %}
 
     <div>
       <label class="block font-semibold"
-        >5. Você pretende usar a Aurora novamente?</label
+        >5. Você pretende usar a Aurora novamente no futuro?</label
       >
       <div>
         <input type="radio" name="uso_futuro" value="Sim, com certeza" /> Sim,
@@ -83,7 +140,7 @@ content %}
     </div>
 
     <div>
-      <label class="block font-semibold">O que você mais gostou?</label>
+      <label class="block font-semibold">O que você mais gostou experiência com a Aurora?</label>
       <textarea
         name="gostou"
         rows="3"
@@ -92,7 +149,8 @@ content %}
     </div>
 
     <div>
-      <label class="block font-semibold">Sugestão ou comentário</label>
+      <label class="block font-semibold">Deixe sua sugestão ou comentário para melhorarmos a Aurora:
+</label>
       <textarea
         name="sugestao"
         rows="3"
@@ -105,7 +163,7 @@ content %}
     </button>
   </form>
 </div>
-
+</div>
 <script>
   document
     .getElementById("form-avaliacao")
